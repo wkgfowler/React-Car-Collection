@@ -39,7 +39,7 @@ export const server_calls = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'x-access-token': `Bearer ${token}'`
+                'x-access-token': `Bearer ${token}`
             },
             body: JSON.stringify(data)
         });

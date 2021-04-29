@@ -15,8 +15,8 @@ interface CarFormProps {
 }
 
 interface CarState {
-    name: string;
-    price: string;
+    make: string;
+    model: string;
 }
 
 export const CarForm = (props:CarFormProps) => {
@@ -24,7 +24,7 @@ export const CarForm = (props:CarFormProps) => {
     const dispatch = useDispatch();
     let { carData, getData } = useGetData();
     const store = useStore()
-    const name = useSelector<CarState>(state => state.name)
+    const make = useSelector<CarState>(state => state.make)
     const { register, handleSubmit } = useForm({ })
 
     const onSubmit = (data:any, event:any) => {
@@ -33,13 +33,13 @@ export const CarForm = (props:CarFormProps) => {
         if( props.id!){
             server_calls.update(props.id!, data)
             console.log(`Updated:${data} ${props.id}`)
-            //window.location.reload()
+            window.location.reload()
             event.target.reset();
         } else {
-            dispatch(chooseMake(data.name))
+            dispatch(chooseMake(data.make))
             console.log("Hello")
             server_calls.create(store.getState())
-            //window.location.reload()
+            window.location.reload()
         }
     }
 
