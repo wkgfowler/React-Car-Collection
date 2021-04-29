@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import {Dashboard, Home, SignIn} from './components';
 import reportWebVitals from './reportWebVitals';
 import './styles.css';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store = { store }>
     <Router>
       <Switch>
         
@@ -21,6 +24,7 @@ ReactDOM.render(
 
       </Switch>
     </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

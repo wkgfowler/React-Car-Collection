@@ -26,7 +26,7 @@ export const server_calls = {
             },
             body: JSON.stringify(data)
         });
-
+        console.log('for darin')
         if (!response.ok){
             throw new Error('Failed to manufacture vehicle.')
         }
